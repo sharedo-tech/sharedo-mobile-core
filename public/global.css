@@ -1,0 +1,52 @@
+.has-bottom-nav {
+    padding-bottom: 56px !important;
+}
+
+.v-snack {
+    /* HACK - assume always bottom nav, move toasts up */
+    margin-bottom: 62px;
+    transition: bottom 400ms;
+}
+.v-snack:not(.v-snack--absolute) {
+    z-index: 201;   /* under action sheet (v-dialog=202) */
+}
+
+.v-banner__actions {
+    margin-left: 8px !important;   /* reduce default margin */
+}
+
+/* Dialog: full-height */
+.v-dialog.full-height {
+    border-radius: 0;
+    margin: 0;
+    height: 100%;
+    position: fixed;
+    overflow-y: auto;
+    top: 0;
+    left: unset;
+    width: unset;
+}
+.v-dialog.full-height > .v-card {
+    min-height: 100%;
+    min-width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Form input fix: move label to left */
+.v-text-field .v-label {
+    left: 0 !important;
+    right: unset;
+}
+
+/* Override default bottom nav styling */
+.theme--light.v-item-group.v-bottom-navigation .v-btn {
+    border-top: thin solid rgba(0, 0, 0, 0.12);
+}
+
+/* Vuetify bug: bottom nav styling not cascading correctly? */ 
+.v-item-group.v-bottom-navigation .v-btn {
+    height: inherit !important;
+    min-width: 80px !important;
+    background-color: transparent;
+}
