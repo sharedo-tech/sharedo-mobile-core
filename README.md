@@ -1,11 +1,11 @@
-An npm package containing components and services, to help quickly
+This package contains components and services to help quickly
 develop a sharedo mobile app based on Vue/Vuetify.
 
 ## Installation
 ```
 # latest stable
-$ npm install sharedo-mobile-core
+npm install @sharedo/sharedo-mobile-core
 ```
 
 ## Documentation
-Check out live examples (WIP), or visit the [github page](https://github.com/sharedo-tech/sharedo-mobile-core).
+Check out [live examples](https://ambitious-rock-0b8da8903.azurestaticapps.net/), or visit the [github page](https://github.com/sharedo-tech/sharedo-mobile-core).
