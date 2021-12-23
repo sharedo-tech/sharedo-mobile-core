@@ -23,7 +23,7 @@ export default {
         Vue.prototype.$coreUi = CoreUi;
 
         // Register components globally
-        Vue.component("VBottomNav", VTopToolbar);
+        Vue.component("VBottomNav", VBottomNav);
         Vue.component("VTopToolbar", VTopToolbar);
     },
 

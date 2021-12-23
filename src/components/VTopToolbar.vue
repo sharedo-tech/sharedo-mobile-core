@@ -66,7 +66,7 @@
             <v-spacer />
 
             <!-- Right toolbar button -->
-            <v-card-actions v-if="!hideNavDraw">
+            <v-card-actions>
                 <slot name="right">
                     <!-- default = blank space so title is centered (!) -->
                     <div v-if="!hideNavDraw || !showBack">

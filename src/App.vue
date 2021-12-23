@@ -25,12 +25,12 @@
                 <h3 id="about">About this package</h3>
                 <p>
                     This is an npm package containing reusable components and services
-                    to help kick-start your sharedo mobile app. It is available to
-                    install on npm - <mark>TODO-LINK</mark>.
+                    to help kick-start your sharedo mobile app. It is hosted
+                    on <a href="https://github.com/sharedo-tech/sharedo-mobile-core">github</a> and available
+                    to install via <a href="https://www.npmjs.com/package/@sharedo/mobile-core">npm</a>.
                 </p>
                 <p>
-                    A <em>sample app</em> demonstrating how to use this package is 
-                    available at <mark>TODO-LINK</mark>.
+                    Check out the <a href="https://github.com/sharedo-tech/sharedo-sample-mobile-app">sample app</a> demonstrating example usage.
                 </p>
 
                 <h3 id="language-and-tools">Language and tools</h3>
@@ -38,6 +38,11 @@
                     We recommend Vue and Vuetify to make your app look great,
                     and maintain consistency with the components contained
                     within this package.
+                </p>
+
+                <h3 id="icons">Icons</h3>
+                <p>
+                    You can use any icon from this library: <a href="https://materialdesignicons.com">Material Design Icons</a>
                 </p>
 
                 <h3 id="responsive">Responsive layout</h3>
@@ -68,12 +73,12 @@
                 </p>
                 <p>Create a dependency on this package as follows:</p>
                 <p class="ml-2">
-                    <code>npm install sharedo-mobile-core</code>
+                    <code>npm install @sharedo/mobile-core</code>
                 </p>
                 <p>Now put this in your <code>main.js</code>:</p>
                 <p class="ml-2">
-                    <code>import 'sharedo-mobile-core/global.css'</code><br />
-                    <code>import Core from 'sharedo-mobile-core'</code><br />
+                    <code>import '@sharedo/mobile-core/global.css'</code><br />
+                    <code>import Core from '@sharedo/mobile-core'</code><br />
                     <br />
                     <code>// Registers all components globally</code><br />
                     <code>Vue.use(Core, settings);</code>
@@ -99,7 +104,7 @@
                 </p>
                 <p class="ml-2">
                     <code>import {SharedoAuth, SharedoProfile}</code><br />
-                    <code class="ml-2">    from 'sharedo-mobile-core'</code><br/>
+                    <code class="ml-2">    from '@sharedo/mobile-core'</code><br/>
                     <br/>
                     <code>// Initialise sharedo authentication</code><br/>
                     <code>SharedoAuth.initialise(loginPage).then(()=>{</code><br/>
@@ -128,7 +133,7 @@
                 </p>
                 <p class="ml-2">
                     <code>import {SharedoFetch as Fetch}</code><br />
-                    <code class="ml-3">    from 'sharedo-mobile-core'</code><br/>
+                    <code class="ml-3">    from '@sharedo/mobile-core'</code><br/>
                     <br/>
                     <code>const id = "...";</code><br/>
                     <code>Fetch.get(`/api/v1/public/workItem/${id}`)</code><br/>
@@ -150,6 +155,22 @@
                 </p>
 
                 <h2 id="components" class="primary--text">Components</h2>
+
+                <p>
+                    The following components are available in this package.
+                </p>
+
+                <p>
+                    <v-alert
+                        border="bottom"
+                        colored-border
+                        type="info"
+                        elevation="2"
+                    >
+                        All components are registered globally, so you can use them in your
+                        templates without having to <code>import</code> them first.
+                    </v-alert>
+                </p>
 
                 <h3 id="bottom-nav">Bottom Nav</h3>
                 <p>
@@ -271,7 +292,7 @@
                    <v-btn color="primary" @click="dialog" primary>Show dialog</v-btn>
                 </p>
                 <p>
-                    To close the dialog:
+                    To close the dialog from within your component:
                 </p>
                 <p class="ml-2">
                     <code>this.$emit("close", result);</code>
@@ -290,7 +311,7 @@
                    <v-btn color="primary" @click="loading" primary>Show loading</v-btn>
                 </p>
                 <p>
-                    Alternatively, you can dismiss all loading overlays statically:
+                    Alternatively, you can dismiss all loading overlays at once:
                 </p>
                 <p class="ml-2">
                     <code>this.$coreUi.loading.dismissAll()</code>
@@ -324,7 +345,7 @@
                     Show a "toast" message at the bottom of the screen:
                 </p>
                 <p class="ml-2">
-                    <code>this.$coreUi.toast("Hello there")</code>
+                    <code>this.$coreUi.toast("Hello there", opts)</code>
                 </p>
                 <p>
                    <v-btn color="primary" @click="toast1" primary>Show toast</v-btn>
@@ -345,7 +366,7 @@
                    <v-btn color="primary" @click="toast2" primary>Show toast</v-btn>
                 </p>
                 <p>
-                    If a toast is already being shown, the next toast is shown above it.
+                    Toasts are stacked above one another.
                 </p>
                 
             </v-container>
@@ -390,6 +411,7 @@ export default {
                     children: [
                         { id: "about", name: 'About this package' },
                         { id: "language-and-tools", name: 'Language and tools' },
+                        { id: "icons", name: 'Icons' },
                         { id: "responsive", name: 'Responsive layout' },
                         { id: "installation", name: 'Installation' },
                     ],
