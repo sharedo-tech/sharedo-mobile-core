@@ -23,3 +23,37 @@ export default {
     },
 };
 </script>
+
+<style>
+.theme--light.v-bottom-navigation .v-btn.primary-action {
+    height: calc(100% + 11px) !important;
+    transition: margin-top .2s;
+    margin-top: 0;
+}
+.theme--light.v-bottom-navigation .v-btn.primary-action:hover,
+.theme--light.v-bottom-navigation .v-btn.primary-action:active {
+    margin-top: -4px;
+}
+
+.theme--light.v-bottom-navigation .v-btn.primary-action > .v-btn__content {
+    background: var(--v-primary-base);
+    color: white !important;
+    border-radius: 50%;
+    margin: 0 22%;
+}
+
+@media (max-width: 599px) {
+    .theme--light.v-bottom-navigation .v-btn.primary-action > .v-btn__content {
+        margin: 0 calc((100% - 79px) / 2);  /* Ensure always a circle */
+    }    
+}
+
+.theme--light.v-bottom-navigation .v-btn.primary-action > .v-btn__content > .v-icon {
+    margin-top: -12px;
+}
+
+/* Apply 'retain-focus-on-click="false"' on all buttons  */
+.v-item-group.v-bottom-navigation .v-btn:hover:before {
+    opacity: 0 !important;
+}
+</style>

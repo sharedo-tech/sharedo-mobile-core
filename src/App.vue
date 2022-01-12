@@ -196,6 +196,10 @@
                     <br/>
                     <code>&lt;/v-main></code>
                 </p>
+                <p>
+                    Add <code>primary-action</code> CSS class to a button to make it 
+                    stand out.
+                </p>
 
                 <h3 id="top-toolbar">Top Toolbar</h3>
                 <p>
@@ -251,6 +255,7 @@
                     <code class="ml-3">    message: "You're online.",</code><br/>
                     <code class="ml-3">    color: "success",</code><br/>
                     <code class="ml-3">    icon: "mdi-wifi",</code><br/>
+                    <code class="ml-3">    multiline: false,</code><br/>
                     <code class="ml-3">    btns: [</code><br/>
                     <code class="ml-6">        {text: "OK", color: "success",</code><br/>
                     <code class="ml-9">            handler: ...}</code><br/>

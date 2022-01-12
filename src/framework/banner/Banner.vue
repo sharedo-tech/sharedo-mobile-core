@@ -1,7 +1,7 @@
 <template>
     
     <v-banner
-        single-line
+        :single-line="!multiline"
         fixed
         v-model="active"
         color="blue-grey lighten-5"
@@ -51,6 +51,10 @@ export default {
         btns: {
             type: Array,
         },
+        multiline: {
+            type: Boolean,
+            default: false
+        }
     },
     data: () => ({
         active: false,
@@ -108,7 +112,8 @@ export default {
 }
 
 .v-banner .v-btn:not(.v-btn--round).v-size--small {
-    padding: 0 5px;
+    padding: 0 8px;
+    margin-left: 3px;
 }
 
 .v-banner .v-banner__actions {
