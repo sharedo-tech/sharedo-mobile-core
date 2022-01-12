@@ -1,12 +1,11 @@
-import Vue from 'vue'
-
 import {override} from "./app/settings.js";
 
-import SharedoAuth from "./infra/authcode.js"
-import SharedoFetch from "./infra/fetchWrapper.js"
-import SharedoProfile from "./infra/profile.js"
+import SharedoAuth from "./infra/authcode.js";
+import SharedoFetch from "./infra/fetchWrapper.js";
+import SharedoProfile from "./infra/profile.js";
 
 import CoreUi from "./framework/coreUi.js";
+import "./framework/directives.js";
 
 import VBottomNav from "./components/VBottomNav.vue";
 import VTopToolbar from "./components/VTopToolbar.vue";
@@ -26,13 +25,6 @@ export default {
         Vue.component("VBottomNav", VBottomNav);
         Vue.component("VTopToolbar", VTopToolbar);
     },
-
-    // Directives
-    directives: {
-        visible: Vue.directive('visible', function (el, binding) {
-            el.style.visibility = binding.value ? 'visible' : 'hidden';
-        })
-    }
 }
 
 export {

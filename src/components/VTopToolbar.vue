@@ -45,7 +45,7 @@
             :clipped-left="!isMobile"
         >
             <!-- Left toolbar button -->
-            <v-card-actions>
+            <v-card-actions v-if="!hideLeft">
                 <slot name="left">
                     <!-- default = burger/toggle menu -->
                     <v-icon v-if="!hideNavDraw && !showBack && isMobile" @click.stop="toggleMenu">
@@ -59,14 +59,16 @@
                 </slot>
             </v-card-actions>
 
-            <v-spacer />
+            <slot name="content">
+                <v-spacer />
 
-            <v-toolbar-title v-text="title" ></v-toolbar-title>
+                <v-toolbar-title v-text="title" ></v-toolbar-title>
 
-            <v-spacer />
+                <v-spacer />
+            </slot>
 
             <!-- Right toolbar button -->
-            <v-card-actions>
+            <v-card-actions v-if="!hideRight">
                 <slot name="right">
                     <!-- default = blank space so title is centered (!) -->
                     <div v-if="!hideNavDraw || !showBack">
@@ -95,6 +97,14 @@ export default {
             default: false
         },
         hideNavDraw: {
+            type: Boolean,
+            default: false
+        },
+        hideLeft: {
+            type: Boolean,
+            default: false
+        },
+        hideRight: {
             type: Boolean,
             default: false
         }
