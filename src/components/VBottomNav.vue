@@ -1,5 +1,6 @@
 <template>
     <v-bottom-navigation
+        id="sharedo-bottom-nav"
         fixed
         grow
         v-model="activeItem"
@@ -24,7 +25,24 @@ export default {
 };
 </script>
 
+<style scoped>
+#sharedo-bottom-nav {
+    box-shadow: none;
+}
+
+#sharedo-bottom-nav {
+    border-top: thin solid rgba(0, 0, 0, 0.12) !important;
+}
+</style>
+
 <style>
+
+/* Top border specified above */
+.theme--light.v-item-group.v-bottom-navigation .v-btn {
+    border-top: none !important;
+}
+
+/* Primary action button */
 .theme--light.v-bottom-navigation .v-btn.primary-action {
     height: calc(100% + 11px) !important;
     transition: margin-top .2s;

@@ -38,6 +38,7 @@
         </v-navigation-drawer>
 
         <v-app-bar
+            id="sharedo-app-bar"
             app
             fixed
             dark
@@ -144,3 +145,20 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+#sharedo-app-bar {
+    box-shadow: none;
+    
+    /* Cover mobile status bar */
+    padding-top: 28px;
+    margin-top: -28px !important;
+    height: 92px !important;
+}
+
+@media (max-width: 959px) {
+    #sharedo-app-bar {
+        height: 84px !important;
+    }
+}
+</style>
