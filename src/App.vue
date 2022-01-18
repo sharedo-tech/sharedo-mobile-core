@@ -96,6 +96,18 @@
 
                 <h2 id="services" class="primary--text">Services</h2>
 
+                <h3 id="InstallPrompt">InstallPrompt</h3>
+                <p>
+                    If appropriate, this prompts the user to install the progressive
+                    web app onto their device.
+                </p>
+                <p class="ml-2">
+                    <code>import {InstallPrompt} from '@sharedo/mobile-core'</code><br/>
+                    <code>...</code><br/>
+                    <code>mounted: function() {</code><br/>
+                    <code class="ml-2">    InstallPrompt.init();</code><br/>
+                    <code>}</code>
+                </p>
                 <h3 id="SharedoAuth">SharedoAuth</h3>
                 <p>
                     Initialise this service in your <code>main.js</code> to help
@@ -425,6 +437,7 @@ export default {
                     id: "services",
                     name: 'Services',
                     children: [
+                        { id: "InstallPrompt", name: 'InstallPrompt' },
                         { id: "SharedoAuth", name: 'SharedoAuth' },
                         { id: "SharedoFetch", name: 'SharedoFetch' },
                         { id: "SharedoProfile", name: 'SharedoProfile' },

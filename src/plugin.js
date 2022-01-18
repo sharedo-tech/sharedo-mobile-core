@@ -4,6 +4,8 @@ import SharedoAuth from "./infra/authcode.js";
 import SharedoFetch from "./infra/fetchWrapper.js";
 import SharedoProfile from "./infra/profile.js";
 
+import InstallPrompt from "./services/installPrompt.js";
+
 import CoreUi from "./framework/coreUi.js";
 import "./framework/directives.js";
 
@@ -32,6 +34,7 @@ export {
     SharedoAuth,
     SharedoFetch,
     SharedoProfile,
+    InstallPrompt,
 
     // UI
     CoreUi,
