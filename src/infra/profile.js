@@ -20,6 +20,7 @@ function loadProfile()
         {
             profile.userId = dto.userId;
             profile.name = dto.fullName;
+            profile.persona = dto.persona;
         });
 };
 export { loadProfile }

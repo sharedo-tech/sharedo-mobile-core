@@ -15,15 +15,6 @@
                         <h1>Sharedo</h1>
                     </v-list-item>
 
-                    <v-list-item>
-                        <v-list-item-action>
-                            <v-icon>mdi-cog</v-icon>
-                        </v-list-item-action>
-                        <v-list-item-content>
-                            <v-list-item-title>Settings</v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
-
                     <v-list-item @click="logout">
                         <v-list-item-action>
                             <v-icon>mdi-logout</v-icon>
@@ -149,6 +140,7 @@ export default {
 <style scoped>
 #sharedo-app-bar {
     box-shadow: none;
+    background: linear-gradient(rgba(0,0,0,0) 73%, rgba(0,0,0,0.1));
     
     /* Cover mobile status bar */
     padding-top: 28px;

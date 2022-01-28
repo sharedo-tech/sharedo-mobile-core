@@ -50,3 +50,8 @@
     min-width: 80px !important;
     background-color: transparent;
 }
+
+/* Useful helpers */
+.cursor-pointer {
+    cursor: pointer;
+}
