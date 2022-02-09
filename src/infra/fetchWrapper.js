@@ -114,8 +114,33 @@ export function post(url, body)
     });
 }
 
+export function put(url, body)
+{
+    return new Promise((resolve, reject) =>
+    {
+        var token = auth.accessToken;
+        if (!token) reject("Not authorised");
+
+        var request =
+        {
+            method: "PUT",
+            cache: "no-cache",
+            body: JSON.stringify(body),
+            headers:
+            {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`,
+                "Accept": "application/json"
+            }
+        };
+
+        doFetch(url, request, resolve, reject);
+    });
+}
+
 // Default export as a static class
 class FetchWrapper { }
 FetchWrapper.get = get;
 FetchWrapper.post = post;
+FetchWrapper.put = put;
 export default FetchWrapper;
