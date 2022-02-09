@@ -9,7 +9,7 @@ npm run build
 npm run serve   # also builds & hot-reloads for development
 npm run test
 npm run lint
-npm pack        # package for local testing (see below)
+npm pack        # after a build, packages for local testing
 npm publish
 ```
 

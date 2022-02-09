@@ -115,8 +115,4 @@ export default {
     padding: 0 8px;
     margin-left: 3px;
 }
-
-.v-banner .v-banner__actions {
-    margin-left: 10px !important;   /* reduce default margin */
-}
 </style>
