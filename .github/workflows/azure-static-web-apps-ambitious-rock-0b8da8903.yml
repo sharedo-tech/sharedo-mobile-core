@@ -21,7 +21,7 @@ jobs:
       - name: npm install and test
         run: |
           # Build and test the project
-          npm install
+          npm ci
           npm run test
       - name: Build And Deploy
         id: builddeploy
