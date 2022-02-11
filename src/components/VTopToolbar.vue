@@ -23,6 +23,12 @@
                             <v-list-item-title>Log out</v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
+                        
+                    <v-list-item class="absolute" :style="{ bottom: (isMobile ? 10 : 60) + 'px' }">
+                        <v-list-item-content>
+                            <v-list-item-title class="grey--text text--lighten-1">{{version}}</v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
 
                 </slot>
             </v-list>
@@ -104,6 +110,7 @@ export default {
     data: function () {
         return {
             showMenu: false,
+            version: null,
         };
     },
     mounted() {
@@ -111,6 +118,9 @@ export default {
         this.$on("closeMenu", () => function() {
             self.showMenu = false;
         });
+        
+        var ver = process.env.VUE_APP_VERSION;
+        self.version = ver ? "v" + ver : null;
     },
     computed: {
         isMobile: function () {
