@@ -2,6 +2,10 @@
     padding-bottom: 56px !important;
 }
 
+/* Position */
+.absolute { position: absolute !important;	}
+.relative { position: relative !important; }
+
 /* Snack (toast) */
 .v-snack {
     /* HACK - assume always bottom nav, move toasts up */

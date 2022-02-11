@@ -56,6 +56,8 @@ function show(options) {
             cmp.close()
         }
     })
+
+    return cmp
 }
 
 // banner() -> same as banner.show()
