@@ -21,14 +21,14 @@
                 <v-row>
                     <v-text-field
                         label="Reference"
-                        v-model="reference"
+                        v-model="referenceLocal"
                         required
                     ></v-text-field>
                 </v-row>
                 <v-row>
                     <v-text-field
                         label="Title"
-                        v-model="title"
+                        v-model="titleLocal"
                         required
                     ></v-text-field>
                 </v-row>
@@ -48,23 +48,33 @@
 import CoreUi from "../../framework/coreUi.js";
 
 export default {
+    name: "VSampleForm",
     props: {
         reference: String,
         title: String,
     },
     data: function () {
         return {
+            referenceLocal: this.reference,
+            titleLocal: this.title,
         };
+    },
+    mounted: function() {
+
+        // Test that data is reactive
+        this.titleLocal += " (reactive)"
+        setTimeout(() => {
+            this.titleLocal += " (ajax)"
+        }, 1000)
     },
     methods: {
         save: function() {
-            var self = this;
 
             // Show a spinner then close
             var l = CoreUi.loading();
-            setTimeout(function() {
+            setTimeout(() => {
                 l.dismiss();
-                self.close("my-result");
+                this.close("my-result");
             }, 1000)
         },
         close: function(result) {

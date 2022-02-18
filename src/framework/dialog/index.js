@@ -8,36 +8,30 @@ import Vuetify from 'vuetify/lib'
 
 const DialogConstructor = Vue.extend(Dialog)
 
-function createCmp(options) {
+function createCmp(childComponent, options) {
 
     // Instantiate dialog
     const cmp = new DialogConstructor()
     const vuetifyObj = new Vuetify()
     cmp.$vuetify = vuetifyObj.framework
 
-    // Instantiate child component
-    const ChildConstructor = Vue.extend(options.component)
-    const cmpChild = new ChildConstructor()
-    cmpChild.$vuetify = vuetifyObj.framework
-    Object.assign(cmpChild, options)
-
-    // Put child into dialog slot
-    cmp.$slots.default = [cmpChild.$mount()._vnode]
-
     // Mount dialog and add to DOM
-    Object.assign(cmp, options)
+    Object.assign(cmp, { childComponent: childComponent, childProps: options })
     document.body.appendChild(cmp.$mount().$el)
     
-    return { parent: cmp, child: cmpChild }
+    return cmp
 }
 
 function show(component, options, evts) {
     options = options || {};
-    options.component = component
-    const cmps = createCmp(options)
 
-    cmps.child.$on('close', (result) => {
-        cmps.parent.active = false;
+    const cmp = createCmp(component, options)
+
+    // We can't trust mounted as it fires to early - use event
+    cmp.$emit('shown')
+    
+    cmp.$on('close', (result) => {
+        cmp.active = false;
 
         if (evts && typeof evts.closing === "function") {
             evts.closing(result);
@@ -45,13 +39,12 @@ function show(component, options, evts) {
 
         // Allow fade out animation
         setTimeout(function() {
-            cmps.child.$destroy()
-            cmps.parent.$destroy()
-            cmps.parent.$el.parentNode.removeChild(cmps.parent.$el)
+            cmp.$destroy()
+            cmp.$el.parentNode.removeChild(cmp.$el)
         }, 400)
     })
 
-    return cmps.child;
+    return cmp;
 }
 
 // dialog() -> same as dialog.show()
