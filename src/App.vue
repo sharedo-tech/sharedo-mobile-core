@@ -288,7 +288,8 @@
                 <h3 id="dialog">Dialog</h3>
                 <p>
                     Shows the given component in a full-screen dialog. It is recommended
-                    that you use a VCard in the root of your component's template.
+                    that you use a VCard in the root of your component's template. Initial
+                    data is passed into your dialog's <code>props</code>.
                 </p>
                 <p class="ml-2">
                     <code>this.$coreUi.dialog(MyComponent, [props], [events])</code>
