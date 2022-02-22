@@ -1,7 +1,6 @@
 {
   "name": "@sharedo/mobile-core",
   "description": "An npm package containing components and services to help develop a sharedo mobile app",
-  "version": "0.1.10",
   "private": false,
   "author": "Duncan Smith",
   "license": "MIT",

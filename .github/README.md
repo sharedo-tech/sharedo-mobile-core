@@ -28,6 +28,16 @@ After running `npm run build && npm pack`, run the following in your app:
 npm install ..\(path-to-this-project)\sharedo-mobile-core-0.1.0.tgz
 ```
 
+## Publishing
+After testing locally, and committing all changes, run the following:
+```
+npm version {new-version} --no-git-tag-version
+npm publish
+git tag -a {new-version} -m {new-version}
+git push origin {new-version}
+git reset --hard                # Avoid pushing changes to package/package-lock
+```
+
 ## Documentation
 Check out [live examples](https://ambitious-rock-0b8da8903.azurestaticapps.net/). There's
 also a [sample app](https://github.com/sharedo-tech/sharedo-sample-mobile-app) which makes use of this
