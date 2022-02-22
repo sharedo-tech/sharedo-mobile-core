@@ -6,6 +6,9 @@
 .absolute { position: absolute !important;	}
 .relative { position: relative !important; }
 
+/* Min width */
+.min-w-full { min-width: 100% !important; }
+
 /* Snack (toast) */
 .v-snack {
     /* HACK - assume always bottom nav, move toasts up */

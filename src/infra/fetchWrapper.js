@@ -114,6 +114,28 @@ export function post(url, body)
     });
 }
 
+export function rawPost(url, body)
+{
+    return new Promise((resolve, reject) =>
+    {
+        var token = auth.accessToken;
+        if (!token) reject("Not authorised");
+
+        var request =
+        {
+            method: "POST",
+            cache: "no-cache",
+            body: body,
+            headers:
+            {
+                "Authorization": `Bearer ${token}`,
+            }
+        };
+
+        doFetch(url, request, resolve, reject);
+    });
+}
+
 export function put(url, body)
 {
     return new Promise((resolve, reject) =>
@@ -142,5 +164,6 @@ export function put(url, body)
 class FetchWrapper { }
 FetchWrapper.get = get;
 FetchWrapper.post = post;
+FetchWrapper.rawPost = rawPost;
 FetchWrapper.put = put;
 export default FetchWrapper;
