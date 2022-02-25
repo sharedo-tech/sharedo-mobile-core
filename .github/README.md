@@ -9,8 +9,6 @@ npm run build
 npm run serve   # also builds & hot-reloads for development
 npm run test
 npm run lint
-npm pack        # after a build, packages for local testing
-npm publish
 ```
 
 ## Installing
@@ -28,14 +26,11 @@ After running `npm run build && npm pack`, run the following in your app:
 npm install ..\(path-to-this-project)\sharedo-mobile-core-0.1.0.tgz
 ```
 
-## Publishing
+## Publishing to npm
 After testing locally, and committing all changes, run the following:
 ```
-npm version {new-version} --no-git-tag-version
-npm publish
-git tag -a {new-version} -m {new-version}
-git push origin {new-version}
-git reset --hard                # Avoid pushing changes to package/package-lock
+publish 0.1.2       # next version number
+git reset --hard    # avoid pushing changes to package(-lock)
 ```
 
 ## Documentation
