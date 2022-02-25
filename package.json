@@ -1,5 +1,6 @@
 {
   "name": "@sharedo/mobile-core",
+  "version": "0.1.0",
   "description": "An npm package containing components and services to help develop a sharedo mobile app",
   "private": false,
   "author": "Duncan Smith",

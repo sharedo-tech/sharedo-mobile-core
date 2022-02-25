@@ -14,7 +14,7 @@
  * and, if successful, repeat the API call. If it can't renew, or it 401's again, then user is redirected
  * back to sign in as their tokens are now completely invalid.
  */
-function doFetch(url, request, resolve, reject, attempt)
+function doFetch(url, request, resolve, reject, attempt, responseType)
 {
     url = expandUrl(url);
 
@@ -37,7 +37,7 @@ function doFetch(url, request, resolve, reject, attempt)
                             {
                                 console.log("Retrying " + url);
                                 request.headers["Authorization"] = `Bearer ${newAccessToken}`;
-                                doFetch(url, request, resolve, reject, attempt + 1);
+                                doFetch(url, request, resolve, reject, attempt + 1, responseType);
                             },
                             () =>
                             {
@@ -60,7 +60,10 @@ function doFetch(url, request, resolve, reject, attempt)
                 return;
             }
 
-            resolve(response.json())
+            resolve(
+                responseType === "text" ? response.text()
+                : (responseType === "blob" ? response.blob()
+                    : response.json()));
         },
         err => 
         {
@@ -68,8 +71,17 @@ function doFetch(url, request, resolve, reject, attempt)
         });
 }
 
-export function get(url)
+// url can be string or object: { url: ..., responseType: "json/text/blob" }
+export function get(urlOrObj)
 {
+    var options = {
+        url: urlOrObj,
+        responseType: null,
+    };
+
+    if (typeof urlOrObj === "object")
+        Object.assign(options, urlOrObj || {});
+
     return new Promise((resolve, reject) =>
     {
         var token = auth.accessToken;
@@ -86,7 +98,7 @@ export function get(url)
             }
         };
 
-        doFetch(url, request, resolve, reject);
+        doFetch(options.url, request, resolve, reject, null, options.responseType);
     });
 }
 
