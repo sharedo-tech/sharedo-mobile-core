@@ -6,8 +6,16 @@
 .absolute { position: absolute !important;	}
 .relative { position: relative !important; }
 
-/* Min width */
+/* Min width/height */
+.min-w-0 { min-width: 0 !important; }
 .min-w-full { min-width: 100% !important; }
+.min-h-0 { min-height: 0 !important; }
+.min-h-full { min-height: 100% !important; }
+
+/* Don't retain 'active' state on click, e.g. card */
+.no-focus-on-click:focus:before {
+    opacity: 0 !important;
+}
 
 /* Snack (toast) */
 .v-snack {
@@ -17,6 +25,11 @@
 }
 .v-snack:not(.v-snack--absolute) {
     z-index: 201;   /* under action sheet (v-dialog=202) */
+}
+
+/* Badges */
+button ~ .v-badge__wrapper > .v-badge__badge {
+    pointer-events: none;
 }
 
 /* Banner */
@@ -49,6 +62,17 @@
 .v-text-field .v-label {
     left: 0 !important;
     right: unset;
+}
+
+/* Labels */
+label.section-label {
+    color: var(--v-grey-darken1);
+    font-size: .8rem!important;
+ }
+
+/* Top nav button spacing */
+.v-app-bar .v-card__actions > * ~ * {
+    margin-left: 15px;
 }
 
 /* Override default bottom nav styling */

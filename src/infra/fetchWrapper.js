@@ -72,15 +72,9 @@ function doFetch(url, request, resolve, reject, attempt, responseType)
 }
 
 // url can be string or object: { url: ..., responseType: "json/text/blob" }
-export function get(urlOrObj)
+export function get(url)
 {
-    var options = {
-        url: urlOrObj,
-        responseType: null,
-    };
-
-    if (typeof urlOrObj === "object")
-        Object.assign(options, urlOrObj || {});
+    var opts = handleOptions(url);
 
     return new Promise((resolve, reject) =>
     {
@@ -98,12 +92,14 @@ export function get(urlOrObj)
             }
         };
 
-        doFetch(options.url, request, resolve, reject, null, options.responseType);
+        doFetch(opts.url, request, resolve, reject, null, opts.responseType);
     });
 }
 
 export function post(url, body)
 {
+    var opts = handleOptions(url);
+
     return new Promise((resolve, reject) =>
     {
         var token = auth.accessToken;
@@ -122,12 +118,14 @@ export function post(url, body)
             }
         };
 
-        doFetch(url, request, resolve, reject);
+        doFetch(opts.url, request, resolve, reject, null, opts.responseType);
     });
 }
 
 export function rawPost(url, body)
 {
+    var opts = handleOptions(url);
+
     return new Promise((resolve, reject) =>
     {
         var token = auth.accessToken;
@@ -141,15 +139,18 @@ export function rawPost(url, body)
             headers:
             {
                 "Authorization": `Bearer ${token}`,
+                "Accept": "application/json"
             }
         };
 
-        doFetch(url, request, resolve, reject);
+        doFetch(opts.url, request, resolve, reject, null, opts.responseType);
     });
 }
 
 export function put(url, body)
 {
+    var opts = handleOptions(url);
+
     return new Promise((resolve, reject) =>
     {
         var token = auth.accessToken;
@@ -168,8 +169,47 @@ export function put(url, body)
             }
         };
 
-        doFetch(url, request, resolve, reject);
+        doFetch(opts.url, request, resolve, reject, null, opts.responseType);
     });
+}
+
+export function deleteReq(url, body)
+{
+    var opts = handleOptions(url);
+
+    return new Promise((resolve, reject) =>
+    {
+        var token = auth.accessToken;
+        if (!token) reject("Not authorised");
+
+        var request =
+        {
+            method: "DELETE",
+            cache: "no-cache",
+            body: JSON.stringify(body),
+            headers:
+            {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`,
+                "Accept": "application/json"
+            }
+        };
+
+        doFetch(opts.url, request, resolve, reject, null, opts.responseType);
+    });
+}
+
+function handleOptions(urlOrObj)
+{
+    var options = {
+        url: urlOrObj,
+        responseType: null,
+    };
+
+    if (typeof urlOrObj === "object")
+        Object.assign(options, urlOrObj || {});
+
+    return options;
 }
 
 // Default export as a static class
@@ -178,4 +218,5 @@ FetchWrapper.get = get;
 FetchWrapper.post = post;
 FetchWrapper.rawPost = rawPost;
 FetchWrapper.put = put;
+FetchWrapper.delete = deleteReq;
 export default FetchWrapper;

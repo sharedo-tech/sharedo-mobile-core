@@ -156,7 +156,7 @@
 
                 <h3 id="SharedoProfile">SharedoProfile</h3>
                 <p>
-                    Retrieves and stores the current user's sharedo details;
+                    Retrieves and stores the current user's details, including global permissions;
                     see full example in <a href="#SharedoAuth">SharedoAuth</a> section.
                 </p>
                 <p>

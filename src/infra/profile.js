@@ -1,12 +1,11 @@
 import settings from "../app/settings.js";
 import {get} from "./fetchWrapper";
 
-// Observable/reactive profile info
-// TODO vue 3 syntax
-//export const profile = reactive({
 const profile = {
     userId: null,
-    name: null
+    name: null,
+    persona: null,
+    globalPermissions: [],
 };
 export { profile }
 
@@ -21,6 +20,7 @@ function loadProfile()
             profile.userId = dto.userId;
             profile.name = dto.fullName;
             profile.persona = dto.persona;
+            profile.globalPermissions = dto.globalPermissions;
         });
 };
 export { loadProfile }
