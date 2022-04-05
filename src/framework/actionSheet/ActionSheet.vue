@@ -5,23 +5,22 @@
                 v-for="item in items"
                 :key="item.text"
                 :is="item.type == 'header' ? 'v-subheader' : 'v-list-item'"
+                :href="item.url"
                 @click="callHandlerAndClose(item)"
             >
-                
                 <span v-if="item.type == 'header'">
-                    {{item.text}}
+                    {{ item.text }}
                 </span>
 
                 <v-list-item-icon v-if="item.type != 'header'">
                     <v-icon v-if="item.icon" :color="item.color">
-                        {{item.icon}}
+                        {{ item.icon }}
                     </v-icon>
                 </v-list-item-icon>
 
                 <v-list-item-title v-if="item.type != 'header'">
-                    {{item.text}}
+                    {{ item.text }}
                 </v-list-item-title>
-
             </component>
         </v-list>
     </v-bottom-sheet>
@@ -50,7 +49,7 @@ export default {
             this.active = true;
         },
         callHandlerAndClose(item) {
-            if (item.type === 'header') return;
+            if (item.type === "header") return;
             this.$emit("itemClicked", item);
             this.close();
         },
