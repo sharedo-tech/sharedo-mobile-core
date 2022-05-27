@@ -77,7 +77,7 @@
                 </p>
                 <p>Now put this in your <code>main.js</code>:</p>
                 <p class="ml-2">
-                    <code>import '@sharedo/mobile-core/global.css'</code><br />
+                    <code>import '@sharedo/mobile-core/dist/global.css'</code><br />
                     <code>import Core from '@sharedo/mobile-core'</code><br />
                     <br />
                     <code>// Registers all components globally</code><br />
