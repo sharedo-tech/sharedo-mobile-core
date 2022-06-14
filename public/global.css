@@ -82,6 +82,9 @@ label.section-label {
 .v-app-bar .v-card__actions > * ~ * {
     margin-left: 15px;
 }
+.v-app-bar .v-card__actions > button {
+    max-width: 24px;
+}
 
 /* Override default bottom nav styling */
 .theme--light.v-item-group.v-bottom-navigation .v-btn {
