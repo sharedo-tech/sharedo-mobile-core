@@ -238,6 +238,17 @@
                     <code class="ml-3">    &lt;/template></code><br/>
                     <code>&lt;/VTopToolbar></code>
                 </p>
+
+                <h3 id="banner-sharedo">Banner Sharedo</h3>
+                <p>Displays a banner</p>
+                <p class="ml-2">
+                    <code>&lt;VBannerSharedo&gt;</code><br/>
+                    <code class="ml-3">    &lt;template slot="actions"&gt;</code><br/>
+                    <code class="ml-6">    &lt;v-btn @click=&quot;DoSomething()&quot; /&gt;</code><br/>
+                    <code class="ml-3">    &lt;/template&gt;</code><br/>
+                    <code class="ml-3">    Click the button to do something.</code><br/>
+                    <code>&lt;/VBannerSharedo&gt;</code>
+                </p>
                 
                 <h2 id="ui-helpers" class="primary--text">UI helpers</h2>
 
@@ -450,6 +461,7 @@ export default {
                     children: [
                         { id: "bottom-nav", name: 'Bottom Nav' },
                         { id: "top-toolbar", name: 'Top Toolbar' },
+                        { id: "banner-sharedo", name: 'Banner Sharedo' },
                     ],
                 },
                 {

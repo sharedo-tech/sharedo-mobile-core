@@ -11,6 +11,7 @@ import "./framework/directives.js";
 
 import VBottomNav from "./components/VBottomNav.vue";
 import VTopToolbar from "./components/VTopToolbar.vue";
+import VBannerSharedo from "./components/VBannerSharedo.vue";
 
 export default {
 
@@ -26,6 +27,7 @@ export default {
         // Register components globally
         Vue.component("VBottomNav", VBottomNav);
         Vue.component("VTopToolbar", VTopToolbar);
+        Vue.component("VBannerSharedo", VBannerSharedo);
     },
 }
 
@@ -42,4 +44,5 @@ export {
     // Components
     VBottomNav,
     VTopToolbar,
+    VBannerSharedo
 }
