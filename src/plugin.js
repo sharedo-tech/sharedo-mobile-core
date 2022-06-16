@@ -1,4 +1,4 @@
-import {override} from "./app/settings.js";
+import { override } from "./app/settings.js";
 
 import SharedoAuth from "./infra/authcode.js";
 import SharedoFetch from "./infra/fetchWrapper.js";
@@ -12,6 +12,8 @@ import "./framework/directives.js";
 import VBottomNav from "./components/VBottomNav.vue";
 import VTopToolbar from "./components/VTopToolbar.vue";
 import VBannerSharedo from "./components/VBannerSharedo.vue";
+import VTrafficLight from "./components/VTrafficLight.vue";
+import VDatetimeTrafficLight from "./components/VDatetimeTrafficLight.vue";
 
 export default {
 
@@ -28,6 +30,8 @@ export default {
         Vue.component("VBottomNav", VBottomNav);
         Vue.component("VTopToolbar", VTopToolbar);
         Vue.component("VBannerSharedo", VBannerSharedo);
+        Vue.component("VTrafficLight", VTrafficLight);
+        Vue.component("VDatetimeTrafficLight", VDatetimeTrafficLight)
     },
 }
 
@@ -44,5 +48,7 @@ export {
     // Components
     VBottomNav,
     VTopToolbar,
-    VBannerSharedo
+    VBannerSharedo,
+    VTrafficLight,
+    VDatetimeTrafficLight
 }

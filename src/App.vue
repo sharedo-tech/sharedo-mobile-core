@@ -249,6 +249,18 @@
                     <code class="ml-3">    Click the button to do something.</code><br/>
                     <code>&lt;/VBannerSharedo&gt;</code>
                 </p>
+
+                <h3 id="traffic-light">Traffic Light</h3>
+                <p>Displays a red, amber or green traffic light</p>
+                <p class="ml-2">
+                    <code>&lt;VTrafficLight :value=&quot;myNumericValue&quot; /&gt;</code><br/>
+                </p>
+
+                <h3 id="datetime-traffic-light">Traffic Light (Date/Time)</h3>
+                <p>Displays a red, amber or green traffic light for a date/time value.</p>
+                <p class="ml-2">
+                    <code>&lt;VDatetimeTrafficLight :value=&quot;myDatetimeValue&quot; /&gt;</code><br/>
+                </p>
                 
                 <h2 id="ui-helpers" class="primary--text">UI helpers</h2>
 
@@ -462,6 +474,8 @@ export default {
                         { id: "bottom-nav", name: 'Bottom Nav' },
                         { id: "top-toolbar", name: 'Top Toolbar' },
                         { id: "banner-sharedo", name: 'Banner Sharedo' },
+                        { id: "traffic-light", name: "Traffic Light" },
+                        { id: "datetime-traffic-light", name: "Traffic Light (Date/Time)" }
                     ],
                 },
                 {
