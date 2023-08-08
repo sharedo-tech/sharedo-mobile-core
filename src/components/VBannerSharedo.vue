@@ -1,12 +1,6 @@
 <template>
-  <v-banner
-    :single-line="singleLine"
-    :rounded="rounded"
-    :color="color"
-    v-bind="$attrs"
-    v-on="$listeners"
-    class="my-banner"
-  >
+  <v-banner :single-line="singleLine" :rounded="rounded" :color="color" v-bind="$attrs" v-on="$listeners"
+    class="my-banner">
     <slot></slot>
 
     <template v-slot:actions>
@@ -25,9 +19,9 @@ export default {
       default: true,
     },
     rounded: {
-      type: Number,
+      type: [Boolean, String],
       required: false,
-      default: 0,
+      default: false,
     },
     color: {
       type: String,
@@ -39,7 +33,7 @@ export default {
 </script>
 
 <style>
-.my-banner > .v-banner__wrapper {
+.my-banner>.v-banner__wrapper {
   padding-top: 3px !important;
   padding-bottom: 3px !important;
   border-radius: 0 !important;
