@@ -3,6 +3,7 @@ import { override } from "./app/settings.js";
 import SharedoAuth from "./infra/authcode.js";
 import SharedoFetch from "./infra/fetchWrapper.js";
 import SharedoProfile from "./infra/profile.js";
+import SharedoTypesTree from "./infra/typesTree.js";
 
 import InstallPrompt from "./services/installPrompt.js";
 
@@ -40,6 +41,7 @@ export {
     SharedoAuth,
     SharedoFetch,
     SharedoProfile,
+    SharedoTypesTree,
     InstallPrompt,
 
     // UI
