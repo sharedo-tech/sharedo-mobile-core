@@ -16,6 +16,9 @@ import VBannerSharedo from "./components/VBannerSharedo.vue";
 import VTrafficLight from "./components/VTrafficLight.vue";
 import VDatetimeTrafficLight from "./components/VDatetimeTrafficLight.vue";
 
+import ContactUrlGenerator from "./util/contactUrl.js";
+import MapUrlGenerator from "./util/mapUrl.js";
+
 export default {
 
     // Declare install function executed by Vue.use()
@@ -52,5 +55,9 @@ export {
     VTopToolbar,
     VBannerSharedo,
     VTrafficLight,
-    VDatetimeTrafficLight
+    VDatetimeTrafficLight,
+
+    // Util
+    ContactUrlGenerator,
+    MapUrlGenerator
 }
