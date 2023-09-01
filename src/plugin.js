@@ -1,4 +1,6 @@
 import { override } from "./app/settings.js";
+import { useVuetify } from "./plugins/vuetify.js";
+import { useTipTapVuetify } from "./plugins/tiptap-vuetify.js";
 
 import SharedoAuth from "./infra/authcode.js";
 import SharedoFetch from "./infra/fetchWrapper.js";
@@ -15,6 +17,7 @@ import VTopToolbar from "./components/VTopToolbar.vue";
 import VBannerSharedo from "./components/VBannerSharedo.vue";
 import VTrafficLight from "./components/VTrafficLight.vue";
 import VDatetimeTrafficLight from "./components/VDatetimeTrafficLight.vue";
+import VRichTextEditor from "./components/VRichTextEditor.vue"
 
 import ContactUrlGenerator from "./util/contactUrl.js";
 import MapUrlGenerator from "./util/mapUrl.js";
@@ -36,10 +39,14 @@ export default {
         Vue.component("VBannerSharedo", VBannerSharedo);
         Vue.component("VTrafficLight", VTrafficLight);
         Vue.component("VDatetimeTrafficLight", VDatetimeTrafficLight)
+        Vue.component("VRichTextEditor", VRichTextEditor);
     },
 }
 
 export {
+    useVuetify,
+    useTipTapVuetify,
+
     // Services
     SharedoAuth,
     SharedoFetch,
@@ -56,6 +63,7 @@ export {
     VBannerSharedo,
     VTrafficLight,
     VDatetimeTrafficLight,
+    VRichTextEditor,
 
     // Util
     ContactUrlGenerator,
