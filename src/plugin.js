@@ -18,6 +18,8 @@ import VBannerSharedo from "./components/VBannerSharedo.vue";
 import VTrafficLight from "./components/VTrafficLight.vue";
 import VDatetimeTrafficLight from "./components/VDatetimeTrafficLight.vue";
 import VRichTextEditor from "./components/VRichTextEditor.vue"
+import VBtnSection from "./components/VBtnSection.vue"
+import VEditableExpansionPanelHeader from "./components/VEditableExpansionPanelHeader.vue"
 
 import ContactUrlGenerator from "./util/contactUrl.js";
 import MapUrlGenerator from "./util/mapUrl.js";
@@ -40,6 +42,8 @@ export default {
         Vue.component("VTrafficLight", VTrafficLight);
         Vue.component("VDatetimeTrafficLight", VDatetimeTrafficLight)
         Vue.component("VRichTextEditor", VRichTextEditor);
+        Vue.component("VBtnSection", VBtnSection);
+        Vue.component("VEditableExpansionPanelHeader", VEditableExpansionPanelHeader);
     },
 }
 
@@ -64,6 +68,7 @@ export {
     VTrafficLight,
     VDatetimeTrafficLight,
     VRichTextEditor,
+    VBtnSection,
 
     // Util
     ContactUrlGenerator,
