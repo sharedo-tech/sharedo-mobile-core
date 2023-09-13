@@ -13,7 +13,7 @@ class SharedoTypesTree {
         this.initialized = true;
     }
 
-    isDerivedFrom(type, parentTypes) {
+    isDerivedFrom(type, parentTypes, trueDescendant = false) {
         if (!this.initialized) {
             throw new Error("Tree not initialized.");
         }
@@ -22,6 +22,10 @@ class SharedoTypesTree {
             const parent = this.find(parentType);
 
             if (parent) {
+                if (!trueDescendant && parent.systemName === type) {
+                    return true;
+                }
+
                 const child = this.find(type, parent);
 
                 if (child) {

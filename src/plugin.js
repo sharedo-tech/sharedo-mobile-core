@@ -23,6 +23,7 @@ import VEditableExpansionPanelHeader from "./components/VEditableExpansionPanelH
 
 import ContactUrlGenerator from "./util/contactUrl.js";
 import MapUrlGenerator from "./util/mapUrl.js";
+import debounce from "./util/debounce.js";
 
 export default {
 
@@ -72,5 +73,6 @@ export {
 
     // Util
     ContactUrlGenerator,
-    MapUrlGenerator
+    MapUrlGenerator,
+    debounce
 }
