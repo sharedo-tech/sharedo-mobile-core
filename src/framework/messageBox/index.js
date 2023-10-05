@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import MessageBox from './MessageBox.vue'
 import Vuetify from 'vuetify/lib'
+import { Router } from "../../plugins/router.js"
 
 /* Usage:
  * messageBox({
@@ -16,7 +17,10 @@ import Vuetify from 'vuetify/lib'
 const MessageBoxConstructor = Vue.extend(MessageBox)
 
 function createCmp(options) {
-    const cmp = new MessageBoxConstructor()
+    const cmp = new MessageBoxConstructor({
+        router: Router.instance
+    });
+
     const vuetifyObj = new Vuetify()
     cmp.$vuetify = vuetifyObj.framework
 
@@ -31,15 +35,15 @@ function show(options) {
 
     cmp.$on('statusChange', (isActive, wasActive) => {
         if (wasActive && !isActive) {
-            
+
             // Allow fade out animation
-            setTimeout(function() {
+            setTimeout(function () {
                 cmp.$destroy()
                 cmp.$el.parentNode.removeChild(cmp.$el)
             }, 400)
         }
     })
-    
+
     cmp.$on('buttonClicked', (btn) => {
         if (typeof btn.handler === "function") {
             btn.handler()

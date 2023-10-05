@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Dialog from './Dialog.vue'
 import Vuetify from 'vuetify/lib'
+import { Router } from "../../plugins/router.js"
 
 /* Usage:
  * dialog(MyComponent, options)
@@ -11,14 +12,17 @@ const DialogConstructor = Vue.extend(Dialog)
 function createCmp(childComponent, options) {
 
     // Instantiate dialog
-    const cmp = new DialogConstructor()
+    const cmp = new DialogConstructor({
+        router: Router.instance
+    });
+
     const vuetifyObj = new Vuetify()
     cmp.$vuetify = vuetifyObj.framework
 
     // Mount dialog and add to DOM
     Object.assign(cmp, { childComponent: childComponent, childProps: options })
     document.body.appendChild(cmp.$mount().$el)
-    
+
     return cmp
 }
 
@@ -29,7 +33,7 @@ function show(component, options, evts) {
 
     // We can't trust mounted as it fires to early - use event
     cmp.$emit('shown')
-    
+
     cmp.$on('close', (result) => {
         cmp.active = false;
 
@@ -38,7 +42,7 @@ function show(component, options, evts) {
         }
 
         // Allow fade out animation
-        setTimeout(function() {
+        setTimeout(function () {
             cmp.$destroy()
             cmp.$el.parentNode.removeChild(cmp.$el)
         }, 400)

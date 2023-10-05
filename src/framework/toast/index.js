@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Toast from './Toast.vue'
 import Vuetify from 'vuetify/lib'
+import { Router } from "../../plugins/router.js"
 
 /* Usage:
  * toast({
@@ -19,7 +20,10 @@ const ToastConstructor = Vue.extend(Toast)
 const toasts = []
 
 function createCmp(options) {
-    const cmp = new ToastConstructor()
+    const cmp = new ToastConstructor({
+        router: Router.instance
+    });
+
     const vuetifyObj = new Vuetify()
     cmp.$vuetify = vuetifyObj.framework
 
@@ -55,19 +59,19 @@ function show(options) {
                 var h = cmp.$el.childNodes[0].offsetHeight;
 
                 // Remove from toasts array
-                for(var i = toasts.length - 1; i >= 0; i--) {
-                    
+                for (var i = toasts.length - 1; i >= 0; i--) {
+
                     // Move toast above us down
                     toasts[i].bottom -= (h + PADDING);
 
-                    if(toasts[i] === cmp) {
+                    if (toasts[i] === cmp) {
                         toasts.splice(i, 1);
                         break;
                     }
                 }
 
                 // Allow fade out animation
-                setTimeout(function() {
+                setTimeout(function () {
                     cmp.$destroy()
                     cmp.$el.parentNode.removeChild(cmp.$el)
                 }, 400)

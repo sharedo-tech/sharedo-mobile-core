@@ -1,6 +1,7 @@
 import { override } from "./app/settings.js";
 import { useVuetify } from "./plugins/vuetify.js";
 import { useTipTapVuetify } from "./plugins/tiptap-vuetify.js";
+import { useRouter } from "./plugins/router.js";
 
 import SharedoAuth from "./infra/authcode.js";
 import SharedoFetch from "./infra/fetchWrapper.js";
@@ -51,6 +52,7 @@ export default {
 export {
     useVuetify,
     useTipTapVuetify,
+    useRouter,
 
     // Services
     SharedoAuth,

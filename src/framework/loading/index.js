@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Loading from './Loading.vue'
 import Vuetify from 'vuetify/lib'
+import { Router } from "../../plugins/router.js"
 
 /* Usage:
  * var l = loading()
@@ -14,7 +15,10 @@ var cmp = null;
 var depth = 0;
 
 function createCmp(options) {
-    const cmp = new LoadingConstructor()
+    const cmp = new LoadingConstructor({
+        router: Router.instance
+    });
+
     const vuetifyObj = new Vuetify()
     cmp.$vuetify = vuetifyObj.framework
 
@@ -40,7 +44,7 @@ function show(options) {
             cmp.$nextTick(() => {
 
                 // Allow fade out animation
-                setTimeout(function() {
+                setTimeout(function () {
 
                     // Has loading() been called in meantime?
                     if (depth > 0 || !cmp) return;
@@ -50,7 +54,7 @@ function show(options) {
                     cmp = null;
                 }, 400)
             })
-            
+
         }
     })
 
