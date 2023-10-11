@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Dialog from './Dialog.vue'
 import Vuetify from 'vuetify/lib'
 import { Router } from "../../plugins/router.js"
+import { Store } from '../../plugins/store.js'
 
 /* Usage:
  * dialog(MyComponent, options)
@@ -13,7 +14,8 @@ function createCmp(childComponent, options) {
 
     // Instantiate dialog
     const cmp = new DialogConstructor({
-        router: Router.instance
+        router: Router.instance,
+        store: Store.instance
     });
 
     const vuetifyObj = new Vuetify()

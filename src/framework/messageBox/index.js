@@ -2,6 +2,7 @@ import Vue from 'vue'
 import MessageBox from './MessageBox.vue'
 import Vuetify from 'vuetify/lib'
 import { Router } from "../../plugins/router.js"
+import { Store } from '../../plugins/store.js'
 
 /* Usage:
  * messageBox({
@@ -18,7 +19,8 @@ const MessageBoxConstructor = Vue.extend(MessageBox)
 
 function createCmp(options) {
     const cmp = new MessageBoxConstructor({
-        router: Router.instance
+        router: Router.instance,
+        store: Store.instance
     });
 
     const vuetifyObj = new Vuetify()

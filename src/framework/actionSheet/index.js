@@ -2,6 +2,7 @@ import Vue from 'vue'
 import ActionSheet from './ActionSheet.vue'
 import Vuetify from 'vuetify/lib'
 import { Router } from "../../plugins/router.js"
+import { Store } from '../../plugins/store.js'
 
 /* Usage:
  * actionSheet({
@@ -22,7 +23,8 @@ const ActionSheetConstructor = Vue.extend(ActionSheet)
 
 function createCmp(options) {
     const cmp = new ActionSheetConstructor({
-        router: Router.instance
+        router: Router.instance,
+        store: Store.instance
     });
     
     const vuetifyObj = new Vuetify()

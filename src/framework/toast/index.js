@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Toast from './Toast.vue'
 import Vuetify from 'vuetify/lib'
 import { Router } from "../../plugins/router.js"
+import { Store } from '../../plugins/store.js'
 
 /* Usage:
  * toast({
@@ -21,7 +22,8 @@ const toasts = []
 
 function createCmp(options) {
     const cmp = new ToastConstructor({
-        router: Router.instance
+        router: Router.instance,
+        store: Store.instance
     });
 
     const vuetifyObj = new Vuetify()

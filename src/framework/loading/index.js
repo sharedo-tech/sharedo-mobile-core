@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Loading from './Loading.vue'
 import Vuetify from 'vuetify/lib'
 import { Router } from "../../plugins/router.js"
+import { Store } from '../../plugins/store.js'
 
 /* Usage:
  * var l = loading()
@@ -16,7 +17,8 @@ var depth = 0;
 
 function createCmp(options) {
     const cmp = new LoadingConstructor({
-        router: Router.instance
+        router: Router.instance,
+        store: Store.instance
     });
 
     const vuetifyObj = new Vuetify()

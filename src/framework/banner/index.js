@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Banner from './Banner.vue'
 import Vuetify from 'vuetify/lib'
 import { Router } from "../../plugins/router.js"
+import { Store } from '../../plugins/store.js'
 
 /* Usage:
  * banner({
@@ -16,7 +17,8 @@ const BannerConstructor = Vue.extend(Banner)
 
 function createCmp(options) {
     const cmp = new BannerConstructor({
-        router: Router.instance
+        router: Router.instance,
+        store: Store.instance
     });
 
     const vuetifyObj = new Vuetify()
